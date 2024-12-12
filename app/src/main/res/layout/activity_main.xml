@@ -14,8 +14,9 @@
         android:layout_above="@id/button_gallery"
         android:layout_marginBottom="3dp"
         android:contentDescription="Selected Image Placeholder"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         tools:ignore="NotSibling" />
+
 
     <LinearLayout
         android:id="@+id/button_container"
