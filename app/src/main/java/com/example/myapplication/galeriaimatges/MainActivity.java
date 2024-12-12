@@ -82,22 +82,24 @@ public class MainActivity extends AppCompatActivity {
             imagePickerLauncher.launch(intent);
         });
 
-        Button fullSizePhotoButton = findViewById(R.id.button_fullsize);
-        fullSizePhotoButton.setOnClickListener(v -> {
-            try {
-                File photoFile = createImageFile();
-                if (photoFile != null) {
-                    photoURI = FileProvider.getUriForFile(
-                            MainActivity.this,
-                            "com.example.myapplication.galeriaimatges.fileprovider",
-                            photoFile);
+        Button photoButton = findViewById(R.id.button_fullsize);
+        photoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    File photoFile = createImageFile();
+                    if (photoFile != null) {
+                        photoURI = FileProvider.getUriForFile(MainActivity.this,
+                                "com.example.myapplication.galeriaimatges.fileprovider",
+                                photoFile);
 
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                    cameraFullSizeLauncher.launch(intent);
+                        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                        intent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, photoURI);
+                        cameraFullSizeLauncher.launch(intent);
+                    }
+                } catch (IOException e) {
+                    Log.e("ERROR", "Error creating file", e);
                 }
-            } catch (IOException e) {
-                Log.e("ERROR", "Error creating file", e);
             }
         });
 
