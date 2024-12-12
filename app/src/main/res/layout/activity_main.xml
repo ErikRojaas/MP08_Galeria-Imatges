@@ -9,19 +9,18 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_fullsize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Select Image"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:text="Take Full-Size Photo" />
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/button"
+        android:layout_above="@id/button_fullsize"
         android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
         android:contentDescription="Selected Image Placeholder"/>
