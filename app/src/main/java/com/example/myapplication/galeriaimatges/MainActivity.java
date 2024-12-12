@@ -59,9 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
         cameraFullSizeLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        imageView.setImageURI(photoURI);
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            ImageView imageView = findViewById(R.id.img);
+                            if (photoURI != null) {
+                                imageView.setImageURI(photoURI);
+                            } else {
+                                Log.e("ERROR", "No photoURI available");
+                            }
+                        }
                     }
                 });
 
