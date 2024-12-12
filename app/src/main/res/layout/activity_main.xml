@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="381dp"
+        android:layout_height="605dp"
         android:layout_above="@id/button_gallery"
-        android:layout_marginBottom="16dp"
-        android:scaleType="centerCrop"
+        android:layout_marginBottom="3dp"
         android:contentDescription="Selected Image Placeholder"
+        android:scaleType="centerCrop"
         tools:ignore="NotSibling" />
 
     <LinearLayout
